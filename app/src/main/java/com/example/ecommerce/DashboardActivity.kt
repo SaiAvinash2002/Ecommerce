@@ -6,6 +6,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.ecommerce.databinding.DashboardPageBinding
+import com.example.ecommerce.fragments.CartFragment
+import com.example.ecommerce.fragments.HomeFragment
+import com.example.ecommerce.fragments.OrdersFragment
+import com.example.ecommerce.fragments.ProfileFragment
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: DashboardPageBinding
@@ -44,7 +48,7 @@ class DashboardActivity : AppCompatActivity() {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
 
             when(menuItem.itemId){
-                R.id.homeMenu -> replaceFragment( HomeFragment(),"Home")
+                R.id.homeMenu -> replaceFragment(HomeFragment(),"Home")
                 R.id.cartMenu ->  replaceFragment(CartFragment(),"Cart")
                 R.id.ordersMenu ->  replaceFragment(OrdersFragment(),"Orders")
                 R.id.profileMenu ->  replaceFragment(ProfileFragment(),"Profile")
