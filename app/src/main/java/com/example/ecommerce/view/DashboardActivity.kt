@@ -5,15 +5,69 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.ecommerce.databinding.DashboardPageBinding
 import com.example.ecommerce.fragments.CartFragment
 import com.example.ecommerce.fragments.HomeFragment
 import com.example.ecommerce.fragments.OrdersFragment
 import com.example.ecommerce.fragments.ProfileFragment
+import com.example.ecommerce.viewmodel.DashBoardViewModel
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: DashboardPageBinding
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var viewModel: DashBoardViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        binding = DashboardPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        // Drawer Toggle Setup
+        toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.open_nav,
+            R.string.close_nav
+        )
+
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+//        Initializing viewModel
+        viewModel = ViewModelProvider(this)[DashBoardViewModel::class.java]
+
+        viewModel.currentFragment.observe(this){
+            fragment ->  supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+        }
+
+        viewModel.toolbarTitle.observe(this){
+            title -> binding.toolbar.title = title
+        }
+//        Default Fragment
+        if (savedInstanceState == null){
+            viewModel.setDefaultFragment()
+            binding.navView.setCheckedItem(R.id.homeMenu)
+        }
+//      Handling the click on side drawer items
+        binding.navView.setNavigationItemSelectedListener{
+                menuItem ->
+            menuItem.isChecked = true
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+            viewModel.selectFragment(menuItem.itemId)
+            true
+        }
+    }
+}
+
+/*
+class DashboardActivity : AppCompatActivity() {
+    private lateinit var binding: DashboardPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,3 +118,4 @@ class DashboardActivity : AppCompatActivity() {
         binding.toolbar.title = title
     }
 }
+ */
