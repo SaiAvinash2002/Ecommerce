@@ -1,9 +1,8 @@
 package com.example.ecommerce.model.dto
 
-
 import com.google.gson.annotations.SerializedName
 
-data class ImageX(
+data class Image(
     @SerializedName("display_order")
     val displayOrder: String,
     @SerializedName("image")

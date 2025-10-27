@@ -3,7 +3,7 @@ package com.example.ecommerce.model.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ReviewX(
+data class Review(
     @SerializedName("full_name")
     val fullName: String,
     @SerializedName("rating")

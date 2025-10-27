@@ -1,9 +1,11 @@
-package com.example.ecommerce.model
+package com.example.ecommerce.model.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class CategoryResponse(
+    @SerializedName("categories")
+    val categories: List<Category>,
     @SerializedName("message")
     val message: String,
     @SerializedName("status")

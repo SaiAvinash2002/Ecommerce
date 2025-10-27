@@ -1,6 +1,7 @@
-package com.example.ecommerce.model
+package com.example.ecommerce.model.dto
 
 
+import com.example.ecommerce.model.dto.Subcategory
 import com.google.gson.annotations.SerializedName
 
 data class SubCategoryResponse(

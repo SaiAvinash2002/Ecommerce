@@ -1,9 +1,8 @@
 package com.example.ecommerce.model.dto
 
-
 import com.google.gson.annotations.SerializedName
 
-data class ProductX(
+data class Product(
     @SerializedName("average_rating")
     val averageRating: String,
     @SerializedName("category_id")
@@ -11,7 +10,7 @@ data class ProductX(
     @SerializedName("description")
     val description: String,
     @SerializedName("images")
-    val images: List<ImageX>,
+    val images: List<Image>,
     @SerializedName("is_active")
     val isActive: String,
     @SerializedName("price")
@@ -23,9 +22,9 @@ data class ProductX(
     @SerializedName("product_name")
     val productName: String,
     @SerializedName("reviews")
-    val reviews: List<ReviewX>,
+    val reviews: List<Review>,
     @SerializedName("specifications")
-    val specifications: List<SpecificationX>,
+    val specifications: List<Specification>,
     @SerializedName("sub_category_id")
     val subCategoryId: String
 )
