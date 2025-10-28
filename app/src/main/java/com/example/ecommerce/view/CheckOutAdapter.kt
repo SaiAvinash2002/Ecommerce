@@ -1,10 +1,10 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecommerce.model.local.CartEntity
 import com.example.ecommerce.databinding.CheckoutItemBinding
-import com.example.ecommerce.databinding.FragmentPaymentBinding
 
 class CheckOutAdapter(val productsList: List<CartEntity>): RecyclerView.Adapter<CheckOutAdapter.CheckOutItemViewHolder>() {
     override fun onCreateViewHolder(
@@ -28,8 +28,9 @@ class CheckOutAdapter(val productsList: List<CartEntity>): RecyclerView.Adapter<
     inner class CheckOutItemViewHolder(val binding: CheckoutItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: CartEntity){
             binding.tvProductName.text = item.product_name
-            binding.tvProductAmount.text = item.price
-            binding.tvProductQuantity.text = item.quantity.toString()
+            binding.tvProductUnitPrice.text = "Price: ${item.price}"
+            binding.tvProductQuantity.text = "Quantity: ${item.quantity.toString()}"
+            binding.tvProductAmount.text = "Amount: ${(item.price.toDouble()*item.quantity).toString()}"
         }
     }
 }

@@ -1,21 +1,20 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ecommerce.databinding.LoginPageBinding
-import com.example.ecommerce.remote.ApiService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: LoginPageBinding
-    val apiService: ApiService = ApiService.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = LoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
         checkedHasLogin()
     }
 

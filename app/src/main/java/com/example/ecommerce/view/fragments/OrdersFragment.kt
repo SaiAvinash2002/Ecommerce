@@ -1,4 +1,4 @@
-package com.example.ecommerce.fragments
+package com.example.ecommerce.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ecommerce.R
 
-/************************** No Need To Implement *************************/
-class LaptopsFragment : Fragment() {
+// TODO: Yet To Implement
+
+class OrdersFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,6 @@ class LaptopsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_laptops, container, false)
+        return inflater.inflate(R.layout.fragment_orders, container, false)
     }
 }

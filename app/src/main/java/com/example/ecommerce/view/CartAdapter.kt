@@ -1,14 +1,15 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.ecommerce.Constants.IMAGE_BASE_URL
-import com.example.ecommerce.data.AppDatabase
+import com.example.ecommerce.model.local.CartEntity
+import com.example.ecommerce.R
+import com.example.ecommerce.model.local.AppDatabase
 import com.example.ecommerce.databinding.ItemProductBinding
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -39,9 +40,12 @@ class CartAdapter(
             binding.tvPrice.text = "$${product.price}"
             binding.tvDescription.text = product.description
 
-            Glide.with(binding.root.context)
-                .load(IMAGE_BASE_URL + product.product_image_url)
+            Picasso.get()
+                .load(R.drawable.img)
+                .resize(100, 140)       // match ImageView size
+                .centerCrop()           // scale and crop
                 .into(binding.ivProduct)
+
 
             // quantity
             binding.tvAddToCart.visibility = View.GONE

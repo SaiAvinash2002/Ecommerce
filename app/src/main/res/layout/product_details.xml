@@ -1,6 +1,511 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Product Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RealMe Nazro 50"
+            android:textSize="24sp"
+            android:textColor="#FF9800"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Rating -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <RatingBar
+                android:id="@+id/rbProduct"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4"
+                android:progressTint="#FF9800"
+                android:secondaryProgressTint="#E0E0E0" />
+        </LinearLayout>
+
+        <!-- Product Description -->
+        <TextView
+            android:id="@+id/tvProductDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RealMe narzo 50 (Speed Blue, 4GB RAM+64GB Storage) Helio G96 Processor | 50MP AI Triple Camera | 120Hz Ultra Smooth Display"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Product Image ViewPager (instead of ImageView) -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Price + Quantity Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvProductPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="$ 200"
+                android:textColor="#FF9800"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- Quantity Controls (llQuantity) -->
+            <LinearLayout
+                android:id="@+id/llQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/btnMinus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#2196F3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/btnPlus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="#2196F3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- ADD TO CART -->
+            <TextView
+                android:id="@+id/tvAddToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:padding="8dp"
+                android:text="ADD TO CART"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Specifications Title -->
+        <TextView
+            android:id="@+id/tvProductSpecificationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Specifications"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Specifications Table -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="24dp">
+
+            <TableLayout
+                android:id="@+id/tableSpecifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:stretchColumns="1">
+
+                <TableRow>
+                    <TextView
+                        android:text="Model Name"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelName"
+                        android:text="OnePlus 9 Pro 5G"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Color"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelColor"
+                        android:text="Morning Mist"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="RAM"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelRAM"
+                        android:text="4 GB"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Internal Storage"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelInternalStorage"
+                        android:text="64 GB + 256 GB Expandable"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Processor"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelProcessor"
+                        android:text="Helio G96 Processor"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Primary Camera"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelCamera"
+                        android:text="50 MP AI Triple Camera"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Front Camera"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelFrontCamera"
+                        android:text="16 MP"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Display"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:id="@+id/tvSpecificationsModelDisplay"
+                        android:text="6.6 inch FHD 120Hz"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Operating System"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
+                    <TextView
+                        android:text="Android 11 based Oxygen OS"
+                        android:padding="8dp" />
+                </TableRow>
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Comments title below specifications -->
+        <TextView
+            android:id="@+id/tvSpecificationsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Reviews RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            />
+
+        <TextView
+            android:id="@+id/tvNoComments"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Comments Yet"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+</ScrollView>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="33dp"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:text="ProductTitle"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="20dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <RatingBar-->
+<!--            android:id="@+id/rbProduct"-->
+<!--            style="?android:attr/ratingBarStyleSmall"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="36dp"-->
+<!--            android:layout_marginEnd="36dp"-->
+<!--            android:numStars="5"-->
+<!--            android:progressTint="@android:color/holo_orange_dark"-->
+<!--            android:rating="4"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvProductDescription"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="67dp"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:text="RealMe narzo 50 (Speed Blue, 4GB RAM+64GB Storage) Helio G96 Processor | 50MP AI Triple Camera | 120Hz Ultra Smooth Display"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvTitle"-->
+<!--            app:layout_goneMarginStart="40dp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="318dp"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.463"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvProductDescription"-->
+<!--            app:srcCompat="@drawable/ic_launcher_foreground" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvProductPrice"-->
+<!--            android:layout_width="103dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginTop="34dp"-->
+<!--            android:text="ProductPrice"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+<!--            tools:layout_editor_absoluteX="45dp" />-->
+
+<!--        &lt;!&ndash; ADD TO CART button (visible when quantity==0) &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvAddToCart"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="ADD TO CART"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="8dp"-->
+<!--            android:textColor="@android:color/holo_blue_light"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/tvPrice"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/tvPrice"/>-->
+
+<!--        &lt;!&ndash; Quantity controller (hide initially) &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llQuantity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/tvPrice"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/btnMinus"-->
+<!--                android:layout_width="36dp"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                android:gravity="center"-->
+<!--                android:text="-"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvQuantity"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="1"-->
+<!--                android:textSize="16sp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/btnPlus"-->
+<!--                android:layout_width="36dp"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                android:gravity="center"-->
+<!--                android:text="+"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </LinearLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvProductSpecificationTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="23dp"-->
+<!--            android:text="Specifications"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="20dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvProductPrice"-->
+<!--            tools:layout_editor_absoluteX="43dp" />-->
+
+<!--        &lt;!&ndash; Table for specifications &ndash;&gt;-->
+<!--        <TableLayout-->
+<!--            android:id="@+id/tableSpecifications"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:stretchColumns="1"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvProductSpecificationTitle"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--            <TableRow>-->
+<!--                <TextView-->
+<!--                    android:text="Model Name"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:text="Galaxy S25"-->
+<!--                    android:padding="8dp" />-->
+<!--            </TableRow>-->
+
+<!--            <TableRow>-->
+<!--                <TextView-->
+<!--                    android:text="Color"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:text="Phantom Black"-->
+<!--                    android:padding="8dp" />-->
+<!--            </TableRow>-->
+
+<!--            <TableRow>-->
+<!--                <TextView-->
+<!--                    android:text="RAM"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:text="12 GB"-->
+<!--                    android:padding="8dp" />-->
+<!--            </TableRow>-->
+
+<!--            <TableRow>-->
+<!--                <TextView-->
+<!--                    android:text="Storage"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:text="256 GB"-->
+<!--                    android:padding="8dp" />-->
+<!--            </TableRow>-->
+
+<!--        </TableLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvSpecificationsTitle"-->
+<!--            android:layout_width="103dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Specifications"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tableSpecifications"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvSpecificationsTitle"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</ScrollView>-->

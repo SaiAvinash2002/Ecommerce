@@ -1,4 +1,4 @@
-package com.example.ecommerce.model.dto
+package com.example.ecommerce.model.remote.dto
 
 import com.example.ecommerce.Product
 import com.google.gson.annotations.SerializedName

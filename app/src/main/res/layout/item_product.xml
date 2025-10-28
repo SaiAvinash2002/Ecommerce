@@ -23,7 +23,7 @@
                 android:id="@+id/ivProduct"
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:src="@android:drawable/ic_popup_reminder"
+                android:src="@drawable/img"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -93,7 +93,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvPrice"
                 app:layout_constraintBottom_toBottomOf="@id/tvPrice"/>
 
-            <!-- Quantity controller (hidden initially) -->
+            <!-- Quantity controller (hide initially) -->
             <LinearLayout
                 android:id="@+id/llQuantity"
                 android:layout_width="wrap_content"

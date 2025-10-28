@@ -1,4 +1,4 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ecommerce.Constants.IMAGE_BASE_URL
 import com.example.ecommerce.databinding.ItemCategoryBinding
-import com.example.ecommerce.model.Category
+import com.example.ecommerce.model.remote.dto.Category
 
 // callback function is used for handling the click of subcategories
 class CategoryAdapter(val categoryList: List<Category>, private val onCategoryClick: (Category) -> Unit   ): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {

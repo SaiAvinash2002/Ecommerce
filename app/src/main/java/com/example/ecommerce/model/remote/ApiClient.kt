@@ -1,4 +1,4 @@
-package com.example.ecommerce.remote
+package com.example.ecommerce.model.remote
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

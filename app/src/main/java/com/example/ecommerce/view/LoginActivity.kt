@@ -1,18 +1,17 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.core.content.edit
 import com.example.ecommerce.databinding.LoginPageBinding
+import androidx.core.content.edit
+import androidx.lifecycle.ViewModelProvider
+import com.example.ecommerce.view.DashboardActivity
 import com.example.ecommerce.view.RegisterActivity
 import com.example.ecommerce.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: LoginPageBinding
     private lateinit var viewModel: LoginViewModel
 
@@ -21,53 +20,33 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = LoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
 
-        viewModel = ViewModelProvider(this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[LoginViewModel::class.java]
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        setupObservers()
-        setupListeners()
-    }
-
-    private fun setupObservers() {
-        viewModel.loginSuccess.observe(this) { success ->
-            if (success) {
-                saveLoginState()
-                startActivity(Intent(this, DashboardActivity::class.java))
-                finish()
-            }
-        }
-
-        viewModel.errorMessage.observe(this) { error ->
-            showMessage("Error", error)
-        }
-    }
-
-    private fun setupListeners() {
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
             viewModel.checkUser(email, password)
         }
 
         binding.tvNoAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+        observeViewModel()
     }
 
-    private fun saveLoginState() {
-        val email = binding.etEmail.text.toString().trim()
-        val password = binding.etPassword.text.toString().trim()
-        val sharedPreferences = getSharedPreferences("ecommerce", MODE_PRIVATE)
-        sharedPreferences.edit {
-            putString("email", email)
-            putString("password", password)
-            putBoolean("isLoggedIn", true)
+    private fun observeViewModel() {
+        viewModel.loginSuccess.observe(this) { success ->
+            if (success) {
+                val sharedPreferences = getSharedPreferences("ecommerce", MODE_PRIVATE)
+                sharedPreferences.edit {
+                    putBoolean("isLoggedIn", true)
+                }
+                startActivity(Intent(this, DashboardActivity::class.java))
+                finish()
+            }
         }
-    }
-
-    private fun showMessage(title: String, message: String) {
-        Toast.makeText(this,message, Toast.LENGTH_LONG).show()
     }
 }

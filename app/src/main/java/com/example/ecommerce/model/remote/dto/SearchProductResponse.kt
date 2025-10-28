@@ -7,7 +7,7 @@ data class SearchProductResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("products")
-    val products: List<ProductXX>,
+    val products: List<Product>,
     @SerializedName("status")
     val status: Int
 )

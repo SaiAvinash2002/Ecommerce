@@ -1,4 +1,4 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

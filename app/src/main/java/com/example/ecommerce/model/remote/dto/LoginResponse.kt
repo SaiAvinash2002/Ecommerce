@@ -1,7 +1,6 @@
-package com.example.ecommerce.model.dto
+package com.example.ecommerce.model.remote.dto
 
 
-import com.example.ecommerce.model.dto.User
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(

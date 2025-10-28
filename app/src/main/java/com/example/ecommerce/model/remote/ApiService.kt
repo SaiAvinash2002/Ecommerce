@@ -1,15 +1,16 @@
-package com.example.ecommerce.remote
+package com.example.ecommerce.model.remote
 
-import com.example.ecommerce.model.dto.AddressResponse
-import com.example.ecommerce.model.dto.SubCategoryProductsListResponse
-import com.example.ecommerce.model.dto.CategoryResponse
-import com.example.ecommerce.model.dto.LoginRequest
-import com.example.ecommerce.model.dto.LoginResponse
-import com.example.ecommerce.model.dto.Product
-import com.example.ecommerce.model.dto.ProductDetails
-import com.example.ecommerce.model.dto.RegisterRequest
-import com.example.ecommerce.model.dto.RegisterResponse
-import com.example.ecommerce.model.dto.SubCategoryResponse
+import com.example.ecommerce.model.remote.dto.AddressResponse
+import com.example.ecommerce.model.remote.dto.CategoryResponse
+import com.example.ecommerce.model.remote.dto.LoginRequest
+import com.example.ecommerce.model.remote.dto.LoginResponse
+import com.example.ecommerce.model.remote.dto.OrderRequest
+import com.example.ecommerce.model.remote.dto.ProductDetails
+import com.example.ecommerce.model.remote.dto.RegisterRequest
+import com.example.ecommerce.model.remote.dto.RegisterResponse
+import com.example.ecommerce.model.remote.dto.SearchProductResponse
+import com.example.ecommerce.model.remote.dto.SubCategoryProductsListResponse
+import com.example.ecommerce.model.remote.dto.SubCategoryResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -23,9 +24,9 @@ interface ApiService {
     //    saying that the request sending with JSON payload.
     @Headers("Content-type: application/json")
     @POST("User/register")
-    fun addUser(
+    suspend fun addUser(
         @Body addUserRequest: RegisterRequest
-    ): Call<RegisterResponse>
+    ): Response<RegisterResponse>
 
     @Headers("Content-type: application/json")
     @POST("User/auth")
@@ -34,7 +35,7 @@ interface ApiService {
     ): Response<LoginResponse>
 
     @GET("Category")
-    fun getCategories(): Call<CategoryResponse>
+    suspend fun getCategories(): Response<CategoryResponse>
 
     @GET("SubCategory")
     fun getSubCategories(
@@ -42,9 +43,9 @@ interface ApiService {
     ):Call<SubCategoryResponse>
 
     @GET("SubCategory/products/{sub_category_id}")
-    fun getSubCategoryProductsList(
+    suspend fun getSubCategoryProductsList(
         @Path("sub_category_id") subCategoryId: Int
-    ): Call<SubCategoryProductsListResponse>
+    ): Response<SubCategoryProductsListResponse>
 
     @GET("Product/details/{product_id}")
     suspend fun getProductDetails(
@@ -55,6 +56,17 @@ interface ApiService {
     suspend fun getAddresssList(
         @Path("user_id") userId: Int
     ): Response<AddressResponse>
+
+    @GET("Product/search")
+    suspend fun getSearchProducts(
+        @Query("query") query: String
+    ): Response<SearchProductResponse>
+
+    @POST("/Order")
+    suspend fun addOrder(
+        @Body order: OrderRequest
+    )
+
     companion object {
         fun getInstance() = ApiClient.retrofit.create(ApiService::class.java)
     }
