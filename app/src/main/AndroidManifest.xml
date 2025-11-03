@@ -3,28 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:maxSdkVersion="30" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/outline_shopping_cart_24"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/outline_shopping_cart_24"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".DashboardActivity"
+            android:name=".view.ProductDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.OrderConfirmation"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.CheckOutActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

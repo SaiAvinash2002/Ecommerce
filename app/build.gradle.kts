@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("kotlin-kapt")
 }
 
 android {
@@ -52,6 +53,18 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
-    implementation("com.squareup.picasso:picasso:2.8")
     implementation("androidx.security:security-crypto:1.1.0-alpha03")
+    val room_version = "2.8.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+// Coroutines support for Android (main thread, lifecycleScope, etc.)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 }
