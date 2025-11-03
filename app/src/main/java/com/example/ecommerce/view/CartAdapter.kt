@@ -40,10 +40,16 @@ class CartAdapter(
             binding.tvPrice.text = "$${product.price}"
             binding.tvDescription.text = product.description
 
+            val imageResId = when (product.product_id) {
+                "1" -> R.drawable.img
+                "2" -> R.drawable.img_1
+                else -> R.drawable.img
+            }
+
             Picasso.get()
-                .load(R.drawable.img)
-                .resize(100, 140)       // match ImageView size
-                .centerCrop()           // scale and crop
+                .load(imageResId)
+                .resize(100, 140)
+                .centerCrop()
                 .into(binding.ivProduct)
 
 

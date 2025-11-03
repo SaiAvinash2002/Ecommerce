@@ -1,4 +1,4 @@
-package com.example.ecommerce.model.remote
+package com.example.ecommerce.model.repository
 
 import androidx.lifecycle.LiveData
 import com.example.ecommerce.model.local.CartDao

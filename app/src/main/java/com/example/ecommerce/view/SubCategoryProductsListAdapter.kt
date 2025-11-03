@@ -50,7 +50,12 @@ class SubCategoryProductsListAdapter(
             binding.tvPrice.text = "$${product.price}"
             binding.tvDescription.text = product.description
             binding.rbProduct.rating = 4.0.toFloat()
-            binding.ivProduct.setImageResource(R.drawable.img);
+            val imageResId = when (product.productId) {
+                "1" -> R.drawable.img
+                "2" -> R.drawable.img_1
+                else -> R.drawable.img
+            }
+            binding.ivProduct.setImageResource(imageResId);
 
 
             // default UI state

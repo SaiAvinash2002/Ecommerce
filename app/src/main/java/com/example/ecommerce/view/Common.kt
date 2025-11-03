@@ -1,4 +1,4 @@
-package com.example.ecommerce
+package com.example.ecommerce.view
 
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity

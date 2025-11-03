@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.ecommerce.Constants.IMAGE_BASE_URL
+import com.example.ecommerce.model.remote.Constants.IMAGE_BASE_URL
 import com.example.ecommerce.databinding.ItemCategoryBinding
 import com.example.ecommerce.model.remote.dto.Category
 
